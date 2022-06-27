@@ -1,0 +1,35 @@
+{
+  "name": "nextjs_jpk",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "12.1.6",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "eslint": "8.18.0",
+    "eslint-config-next": "12.1.6"
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangsen0418/jingpinke.git"
+  },
+  "keywords": [
+    "jingpinke"
+  ],
+  "author": "yangsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yangsen0418/jingpinke/issues"
+  },
+  "homepage": "https://github.com/yangsen0418/jingpinke#readme"
+}
