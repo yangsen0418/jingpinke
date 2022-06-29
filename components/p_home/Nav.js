@@ -20,7 +20,7 @@ const Nav = ({ data = [] }) => {
                     {data.map((item, index) => (
                         <div key={`${index}-${item.id}`}>
                             {/* 跳转链接 */}
-                            <Link href="/course/detail/[id]" as={`course/detail/${item.id}`}>
+                            <Link href="/course/detail/[id]" as={`/course/detail/${item.id}`}>
                                 {/* Nav图片 */}
                                 <a className={s.fon}> <img src={item.img} key={index} alt={item.title} className={s.slide} />{item.title}</a>
                             </Link>

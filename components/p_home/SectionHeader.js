@@ -1,11 +1,13 @@
-export default function SectionHeader({ title = '', subTitle = '' }) {
+import s from './SectionHeader.module.css'
+
+export default function SectionHeader({ title = '', subTitle = '' ,url='/'}) {
     return (
-        <header>
-            <div>
+        <header className={s.header}>
+            <div className={s.title}>
                 <h4>{title}</h4>
                 <h5>{subTitle}</h5>
             </div>
-            <a></a>
+            <a hres={url}>查看更多</a>
         </header>
     )
 }
