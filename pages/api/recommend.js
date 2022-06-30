@@ -34,7 +34,7 @@ export default (req, res) => {
       // 分类
       categoryName: '专四专八',
       // 标题
-      courseTitle: '【适用20备考】专八全程班（领券下单只需1299元！）',
+      courseTitle: '【适用22备考】专八全程班（领券下单只需1299元！）',
       // 课程id
       id: 100,
       // 促销类型 0: 没有促销， 1: 有促销
@@ -68,7 +68,7 @@ export default (req, res) => {
       saleType: 0,
       saleNum: 422,
       price: 4999,
-      courseTime: '2020-01-09 19:00:00',
+      courseTime: '2022-08-09 19:00:00',
     },
     {
       lessonNum: 36.5,
@@ -95,7 +95,7 @@ export default (req, res) => {
       price: 699,
       // 促销价格
       salePrice: 599,
-      courseTime: '2020-07-27 19:30',
+      courseTime: '2022-07-27 19:30',
     },
     {
       lessonNum: 112,
@@ -131,7 +131,7 @@ export default (req, res) => {
       price: 399,
       courseSaleTime: 1593792600000,
       salePrice: 299,
-      courseTime: '2020-08-06 08:30',
+      courseTime: '2022-08-06 08:30',
     },
     {
       lessonNum: 112,
@@ -167,7 +167,7 @@ export default (req, res) => {
       saleEndTime: +new Date() + 5 * 24 * 60 * 60 * 1000,
       price: 399,
       salePrice: 299,
-      courseTime: '2020-08-06 10:30',
+      courseTime: '2022-08-06 10:30',
     },
     {
       lessonNum: 26,
@@ -206,7 +206,7 @@ export default (req, res) => {
         },
       ],
       categoryName: '考研',
-      courseTitle: '2021考研政治领学14班',
+      courseTitle: '2022考研政治领学14班',
       id: 106,
       saleType: 0,
       saleNum: 0,
@@ -235,7 +235,7 @@ export default (req, res) => {
       saleType: 0,
       saleNum: 422,
       price: 4999,
-      courseTime: '2020-01-09 19:00:00',
+      courseTime: '2022-08-09 19:00:00',
     },
     {
       lessonNum: 265,
@@ -251,7 +251,7 @@ export default (req, res) => {
       saleType: 0,
       saleNum: 224,
       price: 4999,
-      courseTime: '2020-01-15 19:00:00',
+      courseTime: '2022-07-15 19:00:00',
     },
     {
       lessonNum: 265,
@@ -262,12 +262,12 @@ export default (req, res) => {
         },
       ],
       categoryName: '考研',
-      courseTitle: '2021考研数学抢跑班',
+      courseTitle: '2022考研数学抢跑班',
       id: 109,
       saleType: 0,
       saleNum: 224,
       price: 4999,
-      courseTime: '2020-01-15 19:00:00',
+      courseTime: '2022-07-15 19:00:00',
     },
   ]
   // start > 0模拟返回不足offset条数据

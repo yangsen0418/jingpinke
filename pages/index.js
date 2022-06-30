@@ -13,8 +13,8 @@ export default function Home({ home }) {
       </Head>
       <main>
         <HomeHead banner={banner} fixedEntries={fixedEntries}/>
-        <Talk />
         <Recommend />
+        <Talk />
       </main>
     </div>
   )

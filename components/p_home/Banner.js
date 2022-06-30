@@ -28,7 +28,7 @@ const Banner = ({ data = [] }) => {
                 {data.map((item, index) => (
                     <div key={`${index}-${item.courseId}`}>
                         {/* 跳转链接 */}
-                        <Link href="/course/detail/[id]" as={`course/detail/${item.courseId}`}>
+                        <Link href="/course/detail/[id]" as={`/course/detail/${item.courseId}`}>
                             {/* banner图片 */}
                             <img src={item.img} key={index} alt={item.title} className={s.slide} />
                         </Link>
