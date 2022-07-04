@@ -13,12 +13,12 @@ export default function Input({
     const handleKeyUp = (e) => {
         if (e.keyCode !== 13 || !inputEL?.current) return
         const event = e || window.event
-        event.penventDefault()
+        event.preventDefault()
         fetchSuggest.cancel() // 取消等待的搜索建议请求
         const filteredVal = inputEL.current.value.trim()
         if (!filteredVal) {
             setInputVal('')
-            return
+            return false
         }
         //回车提交
         submitSearch(filteredVal)
@@ -29,14 +29,14 @@ export default function Input({
     //值改变
     const handleChange = (e) => {
         const SearchVal = e.target.value
-        setInputVal(e.target.value)
+        setInputVal(SearchVal)
         const trimVal = SearchVal.trim()
         if (!trimVal) {
             fetchSuggest.cancel() // 取消等待的搜索建议请求
             //字符为空展示历史
             showHistory()
             //切换搜索历史
-            return
+            return false
         }
         //字符非空搜索建议
         if (trimVal !== inputVal) {
@@ -64,6 +64,9 @@ export default function Input({
                         value={inputVal}
                         onChange={handleChange}
                         onKeyUp={handleKeyUp}
+                        onClick={() => {
+                            inputEL.current.focus()
+                        }}
                     />
                     {/* 禁止按回车表单自动提交：如果表单中含有多个单行输入框，按Enter键时不会自动提交 */}
                     <input type="text" name="notautosubmit" style={{ display: 'none' }} />
