@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { useRouter } from "next/router"
 import throttle from "lodash.throttle"
 import History from "@/p_search/History"
@@ -19,28 +19,31 @@ const TYPES = {
     RESULT: 'result',
 }
 
-export default function Search({ kw, hotWord }) {
+export default function Search({ kw, hotWord, result }) {
     const router = useRouter()
     //内容类型
     const [contType, setContType] = useState(kw ? TYPES.RESULT : TYPES.HISTORY)
+    const [loading, setLoading] = useState(false) // 加载中
     const [inputVal, setInputVal] = useState(kw || '')
     const [suggestList, setSuggestList] = useState([]) // 推荐数据
     const [history, setHistory] = useLSState('searchHistory', kw ? [kw] : [])
 
 
     //切换到搜索结果
-    const submitSearch = (keyword = '') => {
+    const submitSearch = (kw = '') => {
         // 保存去重搜索记录, 最长保持6条，最近优先
-        history.unshift(keyword)
-        setHistory([...new Set(history.slice(0,6))])
+        history.unshift(kw)
+        setHistory([...new Set(history.slice(0, 6))])
         //切换为结果类型
         setContType(TYPES.RESULT)
+        // 加载中
+        setLoading(true)
         //替换路由参数
-        setInputVal(keyword)
+        setInputVal(kw)
         router.replace({
             path: '/search',
             query: {
-                keyword,
+                kw,
             },
         })
     }
@@ -68,15 +71,24 @@ export default function Search({ kw, hotWord }) {
 
     //渲染内容
     const renderContent = () => {
+        if (loading) return <div className={s.loading}>加载中......</div>
         switch (contType) {
             case TYPES.HISTORY:
-            return <History submitSearch={submitSearch} hotWord={hotWord} history={history}  deleteHistory={() => setHistory([])}/>
+                return <History submitSearch={submitSearch} hotWord={hotWord} history={history} deleteHistory={() => setHistory([])} />
             case TYPES.SUGGEST:
                 return <Suggest data={suggestList} submitSearch={submitSearch} />
             case TYPES.RESULT:
-                return <Result />
+                return <Result data={result} kw={kw} />
+            default:
+                break
         }
     }
+
+
+    // result数据加载结束清空loading状态
+    useEffect(() => {
+        setLoading(false)
+    }, [result])
 
 
     return (

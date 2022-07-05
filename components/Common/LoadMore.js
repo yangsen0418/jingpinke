@@ -1,6 +1,19 @@
 import { PureComponent } from "react";
+import s from './LoadMore.module.css'
 
 let scrollTimer = null
+
+function renderCont(isLoadingMore, hasMore, customNoMoreText) {
+  if (isLoadingMore) {
+    return <div className={s.loadText}>正在加载...</div>
+  }
+  return hasMore ? (
+    <div className={s.loadText}>&nbsp;</div>
+  ) : (
+    <div className={s.loadText}>{customNoMoreText || '没有更多了'}</div>
+  )
+}
+
 class LoadMore extends PureComponent {
   constructor(props) {
     super(props)
@@ -44,7 +57,9 @@ class LoadMore extends PureComponent {
 
 
   render() {
-    return <div>加载更多</div>
+    const { hasMore, customNoMoreText } = this.props
+    const { isLoadingMore } = this.state
+    return <div className={s.loadMore}>{renderCont(isLoadingMore, hasMore, customNoMoreText)}</div>
   }
 }
 
